@@ -38,9 +38,16 @@
 {#    </div>#}
 {#  </div>#}
 {#</div>#}
-<form>
-  <div>
-    {{ form }}
-  </div>
-</form>
+  <form action="" method="POST">
+    <h1>Login</h1>
+    {% csrf_token %}
+    {{ form_login.as_p }}
+    <button type="submit" name="form_login">Login</button>
+  </form>
+  <form action="" method="POST">
+    <h1>Sign up</h1>
+    {% csrf_token %}
+    {{ form_signup.as_p }}
+    <button type="submit" name="form_signup">Sign up</button>
+  </form>
 {% endblock %}
