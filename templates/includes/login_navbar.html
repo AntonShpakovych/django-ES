@@ -1,0 +1,12 @@
+<header id="logining">
+  {% if user.is_authenticated %}
+    <span>{{ user.email }}</span>
+    <form action="{% url 'user:auth-logout' %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Logout</button>
+    </form>
+
+  {% else %}
+    <a href="{% url 'user:auth-all' %}">Login/Sign up</a>
+  {% endif %}
+</header>
